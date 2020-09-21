@@ -12,13 +12,19 @@ extern crate cgmath;
 #[derive(Debug)]
 struct Boid {
     position: cgmath::Vector3<f64>,
+    velocity: cgmath::Vector3<f64>,
+    yaw: f64,   // rotation in X-Y plane
+    pitch: f64, // rotation in X-Z plane
 }
 
 impl Boid {
-    /// Create a new boid.
+    /// Create a new boid with all values set to zero.
     fn new() -> Boid {
         return Boid {
-            position: cgmath::Vector3::new(1f64, 2f64, 3f64),
+            position: cgmath::Vector3::new(0.0, 0.0, 0.0),
+            velocity: cgmath::Vector3::new(0.0, 0.0, 0.0),
+            yaw: 0.0,
+            pitch: 0.0,
         };
     }
 }
@@ -28,6 +34,9 @@ mod tests {
     #[test]
     fn new() {
         let b = crate::Boid::new();
-        assert_eq!(b.position, cgmath::vec3(1f64, 2f64, 3f64));
+        assert_eq!(b.position, cgmath::vec3(0.0, 0.0, 0.0));
+        assert_eq!(b.velocity, cgmath::vec3(0.0, 0.0, 0.0));
+        assert_eq!(b.yaw, 0.0);
+        assert_eq!(b.pitch, 0.0);
     }
 }
