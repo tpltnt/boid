@@ -29,6 +29,11 @@ impl Boid {
             timedelta: 0.0,
         };
     }
+
+    /// Update position based on time passed since last update
+    pub fn update(&mut self) {
+        self.position += self.timedelta * self.velocity;
+    }
 }
 
 #[cfg(test)]
@@ -36,6 +41,17 @@ mod tests {
     #[test]
     fn new() {
         let b = crate::Boid::new();
+        assert_eq!(b.position, cgmath::vec3(0.0, 0.0, 0.0));
+        assert_eq!(b.velocity, cgmath::vec3(0.0, 0.0, 0.0));
+        assert_eq!(b.yaw, 0.0);
+        assert_eq!(b.pitch, 0.0);
+        assert_eq!(b.timedelta, 0.0);
+    }
+
+    #[test]
+    fn update() {
+        let mut b = crate::Boid::new();
+        b.update();
         assert_eq!(b.position, cgmath::vec3(0.0, 0.0, 0.0));
         assert_eq!(b.velocity, cgmath::vec3(0.0, 0.0, 0.0));
         assert_eq!(b.yaw, 0.0);
