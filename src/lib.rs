@@ -13,8 +13,9 @@ extern crate cgmath;
 struct Boid {
     position: cgmath::Vector3<f64>,
     velocity: cgmath::Vector3<f64>,
-    yaw: f64,   // rotation in X-Y plane
-    pitch: f64, // rotation in X-Z plane
+    yaw: f64,       // rotation in X-Y plane
+    pitch: f64,     // rotation in X-Z plane
+    timedelta: f64, //time (to be) passed between updates
 }
 
 impl Boid {
@@ -25,6 +26,7 @@ impl Boid {
             velocity: cgmath::Vector3::new(0.0, 0.0, 0.0),
             yaw: 0.0,
             pitch: 0.0,
+            timedelta: 0.0,
         };
     }
 }
@@ -38,5 +40,6 @@ mod tests {
         assert_eq!(b.velocity, cgmath::vec3(0.0, 0.0, 0.0));
         assert_eq!(b.yaw, 0.0);
         assert_eq!(b.pitch, 0.0);
+        assert_eq!(b.timedelta, 0.0);
     }
 }
