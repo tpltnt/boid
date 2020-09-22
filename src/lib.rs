@@ -20,7 +20,7 @@ struct Boid {
 
 impl Boid {
     /// Create a new boid with all values set to zero.
-    fn new() -> Boid {
+    pub fn new() -> Boid {
         return Boid {
             position: cgmath::Vector3::new(0.0, 0.0, 0.0),
             velocity: cgmath::Vector3::new(0.0, 0.0, 0.0),
