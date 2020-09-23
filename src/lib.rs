@@ -57,5 +57,21 @@ mod tests {
         assert_eq!(b.yaw, 0.0);
         assert_eq!(b.pitch, 0.0);
         assert_eq!(b.timedelta, 0.0);
+
+        b.velocity = cgmath::vec3(1.0, 0.5, -3.0);
+        b.update();
+        assert_eq!(b.position, cgmath::vec3(0.0, 0.0, 0.0));
+        assert_eq!(b.velocity, cgmath::vec3(1.0, 0.5, -3.0));
+        assert_eq!(b.yaw, 0.0);
+        assert_eq!(b.pitch, 0.0);
+        assert_eq!(b.timedelta, 0.0);
+
+        b.timedelta = 0.5;
+        b.update();
+        assert_eq!(b.position, cgmath::vec3(0.5, 0.25, -1.5));
+        assert_eq!(b.velocity, cgmath::vec3(1.0, 0.5, -3.0));
+        assert_eq!(b.yaw, 0.0);
+        assert_eq!(b.pitch, 0.0);
+        assert_eq!(b.timedelta, 0.5);
     }
 }
