@@ -30,7 +30,7 @@ impl Boid {
         };
     }
 
-    /// Update position based on time passed since last update
+    /// Update position based on time passed since last update.
     pub fn update(&mut self) {
         self.position += self.timedelta * self.velocity;
     }
