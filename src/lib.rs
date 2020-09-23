@@ -11,11 +11,11 @@ extern crate cgmath;
 /// for each boid.
 #[derive(Debug)]
 struct Boid {
-    position: cgmath::Vector3<f64>,
-    velocity: cgmath::Vector3<f64>,
-    yaw: f64,       // rotation in X-Y plane
-    pitch: f64,     // rotation in X-Z plane
-    timedelta: f64, //time (to be) passed between updates
+    pub position: cgmath::Vector3<f64>,
+    pub velocity: cgmath::Vector3<f64>,
+    pub yaw: f64,       // rotation in X-Y plane
+    pub pitch: f64,     // rotation in X-Z plane
+    pub timedelta: f64, //time (to be) passed between updates
 }
 
 impl Boid {
