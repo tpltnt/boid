@@ -21,13 +21,13 @@ struct Boid {
 impl Boid {
     /// Create a new boid with all values set to zero.
     pub fn new() -> Boid {
-        return Boid {
+        Boid {
             position: cgmath::Vector3::new(0.0, 0.0, 0.0),
             velocity: cgmath::Vector3::new(0.0, 0.0, 0.0),
             yaw: 0.0,
             pitch: 0.0,
             timedelta: 0.0,
-        };
+        }
     }
 
     /// Update position based on time passed since last update.
